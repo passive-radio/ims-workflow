@@ -1,0 +1,20 @@
+Energy minimization 
+&cntrl 
+imin=1,       ! Is minimization = True
+ntmin=1,      ! minimization method(default)
+ncyc=10000,   ! Minimization will be switched from steepest descent to ocnjugate gradient after this steps.
+maxcyc=12000, ! cycle of minimization;
+dx0=0.01,     ! initial step length
+drms=1.0E-4,  ! convergnce criterion of energy [kcal mol^-1 A^-1]
+ntr=1,                                 ! Use harmonic cartesian restraints; Restraint force kcal/mol
+ntrx=1,                                ! Format mask file
+restraintmask="@C,O,N,CA,P,S & !:WAT", ! Resttaint mask
+restraint_wt=99.9,                     ! Restraint weight []
+ntc=1,                                 ! No shake
+ntb=1,    ! Periodic boundary condition with constant volume
+ntf=1,    ! Calculate all forces
+cut=9.0,  ! Cutoff of nonbonded interactions
+ntpr=100, ! Print energies every ntpr steps
+ntx=1,    ! Read initial coodinates without velocity
+&end
+END

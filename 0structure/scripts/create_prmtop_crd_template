@@ -1,0 +1,16 @@
+# This script will parse given PDB file into a pair of prmtop and crd files.
+
+# Load force field parameters
+source FORCEFIELD_PROTEIN
+source FORCEFIELD_WATER
+source leaprc.gaff2
+
+system = loadPDB INPUT_PDB
+
+check system
+
+savepdb system OUTPUT_PDB
+
+saveAmberParm system OUTPUT_PRMTOP OUTPUT_CRD
+
+quit

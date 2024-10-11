@@ -1,0 +1,3 @@
+parm /home/passiveradio/research/ch2-disulfide-bond/0structure/output/system.dry.prmtop
+atominfo :1-9999999 out /home/passiveradio/research/ch2-disulfide-bond/0structure/output/atominfo.dat
+quit

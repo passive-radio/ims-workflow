@@ -1,0 +1,3 @@
+parm PRMTOP_FILE
+atominfo :1-9999999 out ATOMINFO_FILE
+quit

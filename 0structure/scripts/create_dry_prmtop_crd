@@ -1,0 +1,8 @@
+loadRestrt /home/passiveradio/research/ch2-disulfide-bond/0structure/input/system.rst7
+
+strip :WAT
+strip :Na+:Cl-
+
+outparm /home/passiveradio/research/ch2-disulfide-bond/0structure/output/system.dry.prmtop /home/passiveradio/research/ch2-disulfide-bond/0structure/output/system.dry.crd
+
+go

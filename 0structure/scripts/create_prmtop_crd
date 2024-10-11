@@ -1,0 +1,16 @@
+# This script will parse given PDB file into a pair of prmtop and crd files.
+
+# Load force field parameters
+source leaprc.protein.ff19SB
+source leaprc.water.opc3
+source leaprc.gaff2
+
+system = loadPDB /home/passiveradio/research/ch2-disulfide-bond/0structure/input/system.pdb
+
+check system
+
+savepdb system /home/passiveradio/research/ch2-disulfide-bond/0structure/output/system.pdb
+
+saveAmberParm system /home/passiveradio/research/ch2-disulfide-bond/0structure/output/system.prmtop /home/passiveradio/research/ch2-disulfide-bond/0structure/output/system.crd
+
+quit
