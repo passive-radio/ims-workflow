@@ -1,0 +1,26 @@
+# This cpptraj input file is used in "output/sampling_number/step_name/"
+parm PREFIX/0structure/input/system.parm7
+reference PREFIX/0structure/input/system.rst7 [crd]
+
+for t=0;t<CNT_SYSTEMS;t++
+
+  trajin PREFIX/2equilibration/output/0$t/CAL_TYPE/md.crd.nc
+  # According to example of part V, chapter 35, section 11, item 86 Amber 22 reference
+  unwrap :RESIDUE_BEG-RESIDUE_END
+  center :RESIDUE_BEG-RESIDUE_END mass origin
+  image origin center familiar
+
+  rmsf ALL_0$t :RESIDUE_BEG-RESIDUE_END&!@H= byres out OUTPUT/rmsf_all_0$t_CAL_TYPE.dat 
+  rmsf MAIN_0$t :RESIDUE_BEG-RESIDUE_END&!@N,CA,C= byres out OUTPUT/rmsf_main_0$t_CAL_TYPE.dat
+  rmsf RESIDUE_0$t :RESIDUE_BEG-RESIDUE_END&!@N,H,CA,HA,C,O= byres out OUTPUT/rmsf_residue_0$t_CAL_TYPE.dat
+
+  rmsd rmsd_all_0$t  ref [crd] :RESIDUE_BEG-RESIDUE_END&!@H= out OUTPUT/rmsd_mass_all_0$t_CAL_TYPE.dat 
+  rmsd rmsd_main_0$t ref [crd] :RESIDUE_BEG-RESIDUE_END&!@N,CA,C= out OUTPUT/rmsd_mass_main_0$t_CAL_TYPE.dat
+  rmsd rmsd_side_0$t ref [crd] :RESIDUE_BEG-RESIDUE_END&!@N,H,CA,HA,C,O= out OUTPUT/rmsd_mass_side_0$t_CAL_TYPE.dat
+
+  run
+  # clear trajin
+
+done
+
+quit

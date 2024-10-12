@@ -1,0 +1,26 @@
+for t=0;t<CNT_SYSTEMS;t++
+
+  readdata PREFIX/3sampling/output/0$t/1heat/md.out name MDOUT_HEAT_0$t
+  readdata PREFIX/3sampling/output/0$t/2nvt/md.out name MDOUT_NVT_0$t
+  readdata PREFIX/3sampling/output/0$t/3npt/md.out name MDOUT_NPT_0$t
+
+  write OUTPUT/mdout_heat_etot_0$t.dat MDOUT_HEAT_0$t[Etot]
+  write OUTPUT/mdout_heat_eptot_0$t.dat MDOUT_HEAT_0$t[EPtot]
+  write OUTPUT/mdout_heat_temp_0$t.dat MDOUT_HEAT_0$t[TEMP]
+  write OUTPUT/mdout_heat_press_0$t.dat MDOUT_HEAT_0$t[PRESS]
+
+  write OUTPUT/mdout_nvt_etot_0$t.dat MDOUT_NVT_0$t[Etot]
+  write OUTPUT/mdout_nvt_eptot_0$t.dat MDOUT_NVT_0$t[EPtot]
+  write OUTPUT/mdout_nvt_temp_0$t.dat MDOUT_NVT_0$t[TEMP]
+  write OUTPUT/mdout_nvt_press_0$t.dat MDOUT_NVT_0$t[PRESS]
+
+  write OUTPUT/mdout_npt_etot_0$t.dat MDOUT_NPT_0$t[Etot]
+  write OUTPUT/mdout_npt_eptot_0$t.dat MDOUT_NPT_0$t[EPtot]
+  write OUTPUT/mdout_npt_dens_0$t.dat MDOUT_NPT_0$t[Density]
+  write OUTPUT/mdout_npt_temp_0$t.dat MDOUT_NPT_0$t[TEMP]
+  write OUTPUT/mdout_npt_vol_0$t.dat MDOUT_NPT_0$t[VOLUME]
+  write OUTPUT/mdout_npt_press_0$t.dat MDOUT_NPT_0$t[PRESS]
+
+done
+
+quit

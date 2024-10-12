@@ -1,0 +1,20 @@
+# This cpptraj input file is used in "output/sampling_number/step_name/"
+parm PARAM_PATH
+trajin TRAJ_PATH
+reference RST_PATH [crd]
+
+# According to example of part V, chapter 32, section 11, item 83 Amber 20 reference
+unwrap :RESIDUE_BEG-RESIDUE_END
+center :RESIDUE_BEG-RESIDUE_END mass origin
+image origin center familiar
+
+rmsf ALL :RESIDUE_BEG-RESIDUE_END&!@H= byres out rmsf_all.agr 
+rmsf MAIN :RESIDUE_BEG-RESIDUE_END&!@N,CA,C= byres out rmsf_main.agr
+rmsf RESIDUE :RESIDUE_BEG-RESIDUE_END&!@N,H,CA,HA,C,O= byres out rmsf_residue.agr
+
+rmsd rmsd_all  ref [crd] :RESIDUE_BEG-RESIDUE_END&!@H= out rmsd_mass_all.agr 
+rmsd rmsd_main ref [crd] :RESIDUE_BEG-RESIDUE_END&!@N,CA,C= out rmsd_mass_main.agr
+rmsd rmsd_side ref [crd] :RESIDUE_BEG-RESIDUE_END&!@N,H,CA,HA,C,O= out rmsd_mass_side.agr
+
+run
+quit
