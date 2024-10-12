@@ -1,7 +1,5 @@
 #!/bin/bash
 
-prefix=$PREFIX_TRPV_7LP9
-
 prefix=$ROOT_DIR
 script_dir=$prefix/1minimization/scripts
 input_dir=$prefix/1minimization/input

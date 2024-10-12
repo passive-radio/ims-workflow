@@ -1,0 +1,26 @@
+# This cpptraj input file is used in "output/sampling_number/step_name/"
+parm /home/passiveradio/research/ch2-disulfide-bond/0structure/input/system.parm7
+reference /home/passiveradio/research/ch2-disulfide-bond/0structure/input/system.rst7 [crd]
+
+for t=0;t<5;t++
+
+  trajin /home/passiveradio/research/ch2-disulfide-bond/2equilibration/output/0$t/1heat/md.crd.nc
+  # According to example of part V, chapter 35, section 11, item 86 Amber 22 reference
+  unwrap :1-107
+  center :1-107 mass origin
+  image origin center familiar
+
+  rmsf ALL_0$t :1-107&!@H= byres out /home/passiveradio/research/ch2-disulfide-bond/2equilibration/output/analysis/rmsf_all_0$t_1heat.dat 
+  rmsf MAIN_0$t :1-107&!@N,CA,C= byres out /home/passiveradio/research/ch2-disulfide-bond/2equilibration/output/analysis/rmsf_main_0$t_1heat.dat
+  rmsf RESIDUE_0$t :1-107&!@N,H,CA,HA,C,O= byres out /home/passiveradio/research/ch2-disulfide-bond/2equilibration/output/analysis/rmsf_residue_0$t_1heat.dat
+
+  rmsd rmsd_all_0$t  ref [crd] :1-107&!@H= out /home/passiveradio/research/ch2-disulfide-bond/2equilibration/output/analysis/rmsd_mass_all_0$t_1heat.dat 
+  rmsd rmsd_main_0$t ref [crd] :1-107&!@N,CA,C= out /home/passiveradio/research/ch2-disulfide-bond/2equilibration/output/analysis/rmsd_mass_main_0$t_1heat.dat
+  rmsd rmsd_side_0$t ref [crd] :1-107&!@N,H,CA,HA,C,O= out /home/passiveradio/research/ch2-disulfide-bond/2equilibration/output/analysis/rmsd_mass_side_0$t_1heat.dat
+
+  run
+  # clear trajin
+
+done
+
+quit

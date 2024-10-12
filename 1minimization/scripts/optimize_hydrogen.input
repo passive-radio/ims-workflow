@@ -2,8 +2,8 @@ Energy minimization
 &cntrl 
 imin=1,       ! Is minimization = True
 ntmin=1,      ! minimization method(default)
-ncyc=10000,   ! Minimization will be switched from steepest descent to ocnjugate gradient after this steps.
-maxcyc=12000, ! cycle of minimization;
+ncyc=200,   ! Minimization will be switched from steepest descent to ocnjugate gradient after this steps.
+maxcyc=1000, ! cycle of minimization;
 dx0=0.01,     ! initial step length
 drms=1.0E-4,  ! convergnce criterion of energy [kcal mol^-1 A^-1]
 ntr=1,                ! Use harmonic cartesian restraints; Restraint force kcal/mol
