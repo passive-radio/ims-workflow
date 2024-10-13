@@ -1,0 +1,28 @@
+NVE simulation for sampling
+&cntrl
+ntt=0, ! Constant energy
+ntb=1, ! Periodic boundary condition with constant volume
+
+dt=0.0005,      ! time step is 0.5fs
+nstlim=100000, ! the number of steps(0.5fs * 2,000,000 = 1,000ps = 1ns)
+cut=9.0,        ! Cutoff of nonbonded interactions
+
+ntr=0,   ! Don't restrict
+ntc=2,   ! but SHAKE constraints and some options are available
+ntf=2,   ! Ignore bonded interaction with hydrogens
+noshakemask = ':1-107', ! Ignore SHAKE mask. like ':1-36'
+
+ntpr=2500,     ! Print energies every ntpr steps
+ntwprt=1707,   ! Write only coodinates and velocities of atoms from 1 to int
+ntwx=2,        ! Write coordinates each ntwx steps
+ntwv=1,        ! Write velocity each ntwv steps
+iwrap=0,       ! Write trajectory into box
+irest=1,       ! Read restart file
+ntx=5,         ! Read initial coodinates and velocity
+ioutfm=1,      ! Trajectory format will be binary
+&end
+
+&ewald
+dsum_tol=0.0000001, ! direct sum tolerace
+$end
+END
