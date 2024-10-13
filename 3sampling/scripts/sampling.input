@@ -10,15 +10,15 @@ ntb=2,  ! Periodic boundary condition with constant pressure
 ntp=1,  ! md with isotropic position scaling
 
 dt=0.0005,       ! time step is 0.5fs
-nstlim=10000000, ! the number of steps(0.5fs * 10000000 = 5ns)
+nstlim=2000000, ! the number of steps(0.5fs * 10000000 = 5ns)
 cut=9.0,         ! Cutoff of nonbonded interactions
 
 ntr=0,   ! Don't restrict
 ntc=2,   ! but SHAKE constraints and some options are available
 ntf=2,   ! Ignore bonded interaction with hydrogens
-noshakemask = ':0-107', ! Ignore SHAKE mask. like ':1-36'
+noshakemask = ':1-107', ! Ignore SHAKE mask. like ':1-36'
 
-ntwr=-1000000, ! Print
+ntwr=-200000, ! Print
 ntpr=2500,     ! Print energies every ntpr steps
 ntwx=2500,     ! Write coordinates
 iwrap=1,       ! Write trajectory into box

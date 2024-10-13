@@ -16,7 +16,7 @@ cut=9.0,         ! Cutoff of nonbonded interactions
 ntr=0,   ! Don't restrict
 ntc=2,   ! but SHAKE constraints and some options are available
 ntf=2,   ! Ignore bonded interaction with hydrogens(YOU HAVE TO CHANGE THE VALUE TO 1 !!!!!!!!!!!)
-noshakemask = ':0-107', ! Ignore SHAKE mask. like ':1-36'
+noshakemask = ':1-107', ! Ignore SHAKE mask. like ':1-36'
 
 ntpr=2500, ! Print energies every ntpr steps
 ntwx=2500, ! Write coordinates

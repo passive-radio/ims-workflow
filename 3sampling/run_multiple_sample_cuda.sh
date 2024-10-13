@@ -33,8 +33,9 @@ residue_end=$4
 echo "set of jobs start time" `date +'%Y%m%d %H:%M:%S'` >> $output_dir/time.log
 
 for cnt_run in $(seq $sample_beg $sample_end); do
+    export CNT_RUN=$( printf %02d $cnt_run )
     bash $script_dir/single_make_sample_cuda.sh $residue_beg $residue_end
-    export CNT_RUN=$(( $cnt_run + 1 ))
+    # export CNT_RUN=$(( $cnt_run + 1 ))
 done
 
 echo "set of jobs end time  :" `date +'%Y%m%d %H:%M:%S'` >> $output_dir/time.log
